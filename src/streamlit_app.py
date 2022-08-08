@@ -22,14 +22,18 @@ def main():
 
     ### App layout ###
     header = st.container()
-    dataset = st.container()
+    tweet_sentiment = st.container()
+    tweet_volume = st.container()
 
     with header:
         st.title("Real-time twitter sentiment analysis")
         st.text("App for monitoring real-time sentiments of tweets based on specific keywords.")
 
-    with dataset:
-        st.title("Tweet statistics")
+    with tweet_sentiment:
+        st.title("Tweet Sentiment")
+
+    with tweet_volume:
+        st.title("Tweet Volume")
 
     ### App sidebar ###
     # Data range
@@ -65,16 +69,14 @@ def main():
     plot_data = load_data(start_time, plot_freq, twitter_streamer)
 
     ### Plotting charts ###
-    dataset.subheader('Tweet Sentiment')
     params = [kw + '_score' for kw in active_keywords['keyword']]
     plot_data_sentiment = plot_data[params]
-    dataset.line_chart(plot_data_sentiment)
+    tweet_sentiment.line_chart(plot_data_sentiment)
     polarity_eq = r'''Polarity \; score = {p-n \over p+n} \newline where\; p=No.\; of\; positive\; tweets \newline \qquad \quad n=No.\; of\; negative\; tweets'''
-    dataset.latex(polarity_eq)
+    tweet_sentiment.latex(polarity_eq)
 
-    dataset.subheader('Tweet Volume')
     plot_data_volume = plot_data[list(active_keywords['keyword'])]
-    dataset.line_chart(plot_data_volume)
+    tweet_volume.line_chart(plot_data_volume)
 
 def init_connection():
     return psycopg2.connect(

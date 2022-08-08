@@ -72,7 +72,7 @@ def main():
     params = [kw + '_score' for kw in active_keywords['keyword']]
     plot_data_sentiment = plot_data[params]
     tweet_sentiment.line_chart(plot_data_sentiment)
-    polarity_eq = r'''Polarity \; score = {p-n \over p+n} \newline where\; p=No.\; of\; positive\; tweets \newline \qquad \quad n=No.\; of\; negative\; tweets'''
+    polarity_eq = r'''Tweet \; sentiment = {p-n \over p+n} \newline where\; p=No.\; of\; positive\; tweets \newline \qquad \quad n=No.\; of\; negative\; tweets'''
     tweet_sentiment.latex(polarity_eq)
 
     plot_data_volume = plot_data[list(active_keywords['keyword'])]

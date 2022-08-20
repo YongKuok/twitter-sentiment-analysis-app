@@ -3,8 +3,10 @@ This app allows you to monitor the real-time sentiment of specific topics on twi
 
 Live dashboard: http://35.247.129.63:80
 
+![alt text](https://github.com/YongKuok/twitter-sentiment-analysis-app/blob/main/streamlit_dashboard_preview.gif) <br />
+
 ## Architecture
-![alt text](https://github.com/YongKuok/twitter-v2/blob/main/src/workflow.png) <br />
+![alt text](https://github.com/YongKuok/twitter-sentiment-analysis-app/blob/main/workflow.png) <br />
 Tweet data is captured in real-time from the Twitter API using Tweepy python libary and streamed to Kafka. Apache Spark consumes the data from the Kafka stream, processes it and assigns a sentiment score using pretrained VADER sentiment analyzer from Python's NLTK library. The labelled data is then stored in postgreSQL and analysed through a Streamlit dashboard. 
 
 ## Setup instructions

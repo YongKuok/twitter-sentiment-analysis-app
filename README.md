@@ -1,8 +1,6 @@
 # twitter-sentiment-analysis-app
 This app allows you to monitor the real-time sentiment of specific topics on twitter. This project serves as a means for me to apply the theory of large scale data processing by building a real-time data processing pipeline using open source tools. 
 
-Live dashboard: http://35.247.129.63:80
-
 ![alt text](https://github.com/YongKuok/twitter-sentiment-analysis-app/blob/main/streamlit_dashboard_preview.gif) <br />
 
 ## Architecture
